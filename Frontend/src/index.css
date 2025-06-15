@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+.sec{
+  background: url(./assets/pexels-caleboquendo-17120500.jpg) rgb(1, 1, 47);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
