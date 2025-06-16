@@ -35,7 +35,7 @@ app.use("/api/user", userRouter)
 
 if(process.env.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
-    app.get("/files{/*path}",(req, res)=>{
+    app.get("*",(req, res)=>{
         res.sendFile(path.join(__dirname,"../frontend","dist","index.html"))
     });
 };
@@ -45,6 +45,8 @@ connectDB().then( ()=>{
         console.log("Server started on Port:", PORT);    
     });
 })
+
+///files{/*path}
 
 {/*
     "image" : "https://picsum.photos/600/400",
