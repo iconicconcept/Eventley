@@ -1,7 +1,7 @@
 import { useEffect, useState, type ChangeEvent} from 'react'
 import { useNavigate, useParams, Link } from 'react-router'
 
-import axios from 'axios'
+import axiosInstance from '../lib/axios.ts'
 import toast from 'react-hot-toast'
 import { ArrowLeftIcon, LoaderIcon, Trash2Icon } from 'lucide-react'
 
@@ -30,7 +30,7 @@ const Edit = () => {
   useEffect(()=>{
     const fetchNote = async ()=>{
       try {
-        const res = await axios.get(`http://localhost:3001/api/events/${id}`)
+        const res = await axiosInstance.get(`/events/${id}`)
         setEvents(res.data)
         setErrorFetching(null)
       } catch (error) {
@@ -49,7 +49,7 @@ const Edit = () => {
     if(!window.confirm("Are you sure you want to delete this event data?")) return;
 
     try {
-      await axios.delete(`http://localhost:3001/api/events/${id}`);
+      await axiosInstance.delete(`/events/${id}`);
       toast.success("Event deleted successfully!");
       navigate("/lists")
     } catch (error) {
@@ -78,7 +78,7 @@ const Edit = () => {
     }
 
     try {
-      await axios.put(`http://localhost:3001/api/events/${id}`, formData, {
+      await axiosInstance.put(`http://localhost:3001/api/events/${id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
       toast.success("Event data updated Successfully!")

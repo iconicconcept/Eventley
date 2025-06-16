@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router"
 import toast from "react-hot-toast"
 import axios, { AxiosError } from "axios"
+import axiosInstance from "../lib/axios"
 import { type ChangeEvent, useState } from "react"
 const SignUp = () => {
   const [number, setNumber] = useState<string>("")
@@ -19,7 +20,7 @@ const SignUp = () => {
     setLoading(true)    
 
     try{
-      await axios.post("http://localhost:3001/api/user", {
+      await axiosInstance.post("/user", {
         number,
         password
       });

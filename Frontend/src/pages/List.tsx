@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-import axios, { AxiosError } from "axios"
+import { AxiosError } from "axios"
+import axiosInstance from "../lib/axios"
 import RateLimited from "../myComponent/RateLimit"
 import toast from "react-hot-toast"
 import EventCard from "../myComponent/EventCard"
@@ -29,7 +30,7 @@ const List = () => {
         // const res = await fetch("https://localhost:5001/api/notes")
         // const data = await res.json()
         // console.log(data);
-        const res = await axios.get("http://localhost:3001/api/events");
+        const res = await axiosInstance.get("/events");
         setEvents(res.data)
         setIsRateLimted(false)
 

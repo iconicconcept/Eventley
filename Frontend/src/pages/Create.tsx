@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent } from "react"
 import { useNavigate, Link } from "react-router"
 import { ArrowLeftIcon } from "lucide-react"
-import axios from "axios"
+import axiosInstance from "../lib/axios.ts"
 import toast from "react-hot-toast" 
 
 const Create = () => {
@@ -35,7 +35,7 @@ const Create = () => {
     }
 
     try{
-      await axios.post("http://localhost:3001/api/events", formData, {
+      await axiosInstance.post("/events", formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       toast.success("Event created successfully!")

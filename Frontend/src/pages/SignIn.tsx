@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router"
 import toast from "react-hot-toast"
 import axios, { AxiosError } from "axios"
+import axiosInstance from "../lib/axios"
 import { type ChangeEvent, useState } from "react"
 import { ArrowRightIcon } from "lucide-react"
 const SignIn = () => {
@@ -20,7 +21,7 @@ const SignIn = () => {
     setLoading(true)    
 
     try{
-      await axios.post("http://localhost:3001/api/user/login", {
+      await axiosInstance.post("/user/login", {
         number,
         password  
       });
@@ -97,7 +98,7 @@ const SignIn = () => {
 
 
                             <div className="flex justify-start items-center gap-1 text-sm md:justify-end lg:justify-end mt-10 ">
-                              <span>You dont have an Account?</span>
+                              <span>You don't have an Account?</span>
                             <Link to={"/signup"} className="underline text-yellow-400 text-sm gap-1 flex items-center i-center">
                                 <span>Sign Up</span>
                                 <ArrowRightIcon className=" mt-1 size-3"/>
