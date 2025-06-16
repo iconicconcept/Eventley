@@ -9,13 +9,16 @@ import userRouter from "./routes/userRoutes.js";
 import { connectDB } from "./config/db.js"
 import rateLimiter from "./middlewares/rateLimiter.js"
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
 const app = express()
 const PORT = process.env.PORT | 3001
+const __dirname = path.resolve();
+
+
 
 if(process.env.NODE_ENV !== "production"){
     app.use(cors({
