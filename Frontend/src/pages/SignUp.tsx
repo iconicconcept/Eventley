@@ -93,6 +93,11 @@ const SignUp = () => {
                                 </button>
                             </div>
 
+                            <div className="flex gap-2 md:ml-2 lg:ml-2 md:justify-start lg:justify-start justify-center text-center mt-3">
+                              <p className="text-white text-sm">or</p>
+                              <Link to={"/"} className="underline text-yellow-400 text-sm">Sign in</Link>
+                            </div>
+
                             </form>
                           <p className="mt-10 text-sm text-white">By continuing you agree to Evently <Link to={""} className="underline">Term and conditions</Link></p>
 

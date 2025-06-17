@@ -1,7 +1,7 @@
 import { useEffect, useState, type ChangeEvent} from 'react'
 import { useNavigate, useParams, Link } from 'react-router'
 
-import axiosInstance from '../lib/axios.ts'
+import axiosInstance from '../lib/axios'
 import toast from 'react-hot-toast'
 import { ArrowLeftIcon, LoaderIcon, Trash2Icon } from 'lucide-react'
 

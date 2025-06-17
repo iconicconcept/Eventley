@@ -4,7 +4,7 @@ const Header = () => {
     toast.success("Welcome")
   }
   return (
-    <header className="w-full mx-auto bg-blue-950/15 border-b border-b-blue-900 z-20">
+    <header className="w-full mx-auto bg-blue-950/22 border-b border-b-blue-900 z-20">
       <div className="max-w-6xl mx-auto py-5 px-4">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl tracking-tighter font-bold font-mono text-yellow-400">EVENTLEY</h1>

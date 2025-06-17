@@ -4,7 +4,7 @@ import { Link } from "react-router"
 const Home = () => {
   return (
     <div className="sec min-h-screen">
-        <div className="absolute inset-0 bg-blue-900/85 z-10 justify-between">
+        <div className="absolute inset-0 h-full bg-blue-900/85 z-10 justify-between">
             <Header />
 
             <div className="flex flex-col items-center justify-center gap-10 md:gap-10 lg:gap-10 xl:gap-10 z-20 px-5 mt-14">

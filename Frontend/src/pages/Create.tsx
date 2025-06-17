@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent } from "react"
 import { useNavigate, Link } from "react-router"
 import { ArrowLeftIcon } from "lucide-react"
-import axiosInstance from "../lib/axios.ts"
+import axiosInstance from "../lib/axios"
 import toast from "react-hot-toast" 
 
 const Create = () => {
@@ -75,20 +75,20 @@ const Create = () => {
                                     name="title"
                                     placeholder="Enter event title"
                                     className="input border px-2 py-2 rounded-[9px]"
-                                    value={title.toUpperCase()} 
+                                    value={title} 
                                     onChange={(e: ChangeEvent<HTMLInputElement>)=> setTitle(e.target.value)}
                                 />
                             </div>
 
                             <div className="form-control mb-4 flex flex-col gap-2 mt-2">
                                 <label htmlFor="description">Description</label>
-                                <input type="text"
+                                <textarea
                                     id="description"
                                     name="description"
                                     placeholder="Describe the event"
                                     className="input border px-2 py-1 rounded-[9px] max-h-18 min-h-18"
                                     value={description} 
-                                    onChange={(e: ChangeEvent<HTMLInputElement>)=> setDescription(e.target.value)}
+                                    onChange={(e: ChangeEvent<HTMLTextAreaElement>)=> setDescription(e.target.value)}
                                 />
                             </div>
 
@@ -99,7 +99,7 @@ const Create = () => {
                                     name="venue"
                                     placeholder="Give the event venue"
                                     className="input border rounded-[9px] px-2 py-2"
-                                    value={venue.toUpperCase()}
+                                    value={venue}
                                     onChange={(e: ChangeEvent<HTMLInputElement>)=> setVenue(e.target.value)}
                                 />
                             </div>
@@ -139,10 +139,11 @@ const Create = () => {
                                 />
                             </div>
                     
-                            <div className="card-action flex justify-end bg-green mt-10">
-                            <button type="submit" className="btn bg-yellow-400 font-medium cursor-pointer rounded-full px-3 py-2 text-blue-950 tracking-tight" disabled={loading}>
-                                {loading ? "Creating..." : "Create Event"}
-                            </button>
+                            <div className="card-action flex flex-col md:flex-row lg:flex-row justify-between items-center bg-green mt-10">
+                                <p className="text-red-400 text-[16px] font-medium mt-4 md:mt-0 lg:mt-0 leading-tight order-2 md:order-1 lg:order-1 text-center">Ensure all details are well filled before creating!</p>
+                                <button type="submit" className="btn bg-yellow-400 font-medium cursor-pointer rounded-full px-3 py-2 text-blue-950 tracking-tight" disabled={loading}>
+                                    {loading ? "Creating..." : "Create Event"}
+                                </button>
                             </div>
                         </form>
                         </div>

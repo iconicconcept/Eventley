@@ -24,7 +24,7 @@ const EventCard = ({ event }: EventCardProps) => {
       className="card bg-blue-700 hover:shadow-xl transition-all duration-300 ease-in-out border-t-4 border-solid border-yellow-500 rounded-lg z-20 flex flex-col overflow-hidden"
     >
         {imageUrl && event.image.trim() !== "" ? ( // Check if imageUrl is valid and event.image is not just whitespace
-            <img src={imageUrl} className="w-full h-48 object-cover border border-blue-500" />
+            <img src={imageUrl} className="w-full h-48 object-contain border border-blue-500" />
         ) : (
             <div className="w-full h-48 bg-blue-800 flex items-center justify-center text-blue-400">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
